@@ -3,7 +3,11 @@ window.onload = () => {
   // This will be triggered when the user clicks the submit button
   document.getElementById("form").addEventListener("submit", onFormSubmit);
 
-  // Add event listeners for the action buttons
+  buttonEventListeners();
+};
+
+// Add event listeners for the action buttons
+const buttonEventListeners = () => {
   document.querySelectorAll("table button").forEach((button) => {
     button.addEventListener("click", (event) => {
       const action = event.target.getAttribute("data-action");
@@ -79,6 +83,24 @@ const addRow = (values) => {
     // Append a text node to the cell
     newCell.appendChild(newText);
   });
+
+  // Now we need to add the buttons to the last cell
+  const lastCell = newRow.insertCell(values.length);
+  createButton(lastCell, "Move Up", "move-up");
+  createButton(lastCell, "Move Down", "move-down");
+  createButton(lastCell, "Delete", "delete");
+
+  // And we need to add the event listeners
+  buttonEventListeners();
+};
+
+const createButton = (tableCell, buttonName, buttonAction) => {
+  const button = document.createElement("button");
+  button.setAttribute("data-action", buttonAction);
+  const buttonText = document.createTextNode(buttonName);
+  button.appendChild(buttonText);
+
+  tableCell.appendChild(button);
 };
 
 /**
