@@ -37,7 +37,7 @@ const onFormSubmit = (event) => {
   event.preventDefault();
 
   const emailRegexExp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-  const nameRegexExp = /^[a-zA-Z ]{2,30}$/;
+  const nameRegexExp = /^[a-zA-Z ]{2,100}$/;
 
   // Get the form elements
   const inputs = form.elements;
@@ -52,15 +52,15 @@ const onFormSubmit = (event) => {
       email,
       "Email must have the following format foo@bar.com"
     ) &&
-    validateName(
+    validate(
       nameRegexExp,
       firstName,
-      "The first name must have between 2 and 30 charactes and use only letters"
+      "The first name must have between 2 and 100 charactes and use only letters"
     ) &&
-    validateName(
+    validate(
       nameRegexExp,
       lastName,
-      "The last name must have between 2 and 30 charactes and use only letters"
+      "The last name must have between 2 and 100 charactes and use only letters"
     )
   ) {
     /**
@@ -94,11 +94,16 @@ const onFormSubmit = (event) => {
  * @param {string} buttonAction
  */
 const createButton = (tableCell, buttonName, buttonAction) => {
+  // Create a button element
   const button = document.createElement("button");
+  // Set the action attribute
   button.setAttribute("data-action", buttonAction);
+  // Create the button text
   const buttonText = document.createTextNode(buttonName);
+  // Append the button text
   button.appendChild(buttonText);
 
+  // Append the button to the provided cell
   tableCell.appendChild(button);
 };
 
@@ -171,15 +176,16 @@ const moveRow = (direction, rowIndex) => {
 };
 
 /** From validation */
-
 const validate = (regexExp, value, message) => {
   const isValid = regexExp.test(value);
   const errorDiv = document.getElementById("form-errors");
 
   if (!isValid) {
+    const errorElement = document.createElement("p");
     const errorText = document.createTextNode(message);
 
-    errorDiv.appendChild(errorText);
+    errorElement.appendChild(errorText);
+    errorDiv.appendChild(errorElement);
   } else {
     errorDiv.innerHTML = "";
   }
