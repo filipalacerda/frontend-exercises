@@ -16,10 +16,10 @@ const buttonEventListeners = () => {
 
       switch (action) {
         case "move-up":
-          // moveRowUp()
+          moveRow("move-up", rowIndex);
           break;
         case "move-down":
-          // moveRowDown()
+          moveRow("move-down", rowIndex);
           break;
         case "delete":
           deleteRow(rowIndex);
@@ -61,6 +61,22 @@ const onFormSubmit = (event) => {
 /** Table DOM Api */
 
 /**
+ * Creates and appends a button to the provided table cell.
+ *
+ * @param {HTMLElement} tableCell
+ * @param {string} buttonName
+ * @param {string} buttonAction
+ */
+const createButton = (tableCell, buttonName, buttonAction) => {
+  const button = document.createElement("button");
+  button.setAttribute("data-action", buttonAction);
+  const buttonText = document.createTextNode(buttonName);
+  button.appendChild(buttonText);
+
+  tableCell.appendChild(button);
+};
+
+/**
  * Add a row to the table with the values from the form
  *
  * @param {Array} values
@@ -94,15 +110,6 @@ const addRow = (values) => {
   buttonEventListeners();
 };
 
-const createButton = (tableCell, buttonName, buttonAction) => {
-  const button = document.createElement("button");
-  button.setAttribute("data-action", buttonAction);
-  const buttonText = document.createTextNode(buttonName);
-  button.appendChild(buttonText);
-
-  tableCell.appendChild(button);
-};
-
 /**
  * Delete a row from the table
  * @param {number} rowIndex
@@ -112,4 +119,25 @@ const deleteRow = (rowIndex) => {
 
   // Delete given index row
   table.deleteRow(rowIndex);
+};
+
+const moveRow = (direction, rowIndex) => {
+  const rows = document.getElementById("table").rows;
+  const parent = rows[rowIndex].parentNode;
+
+  if (direction === "move-up") {
+    if (rowIndex > 1) {
+      parent.insertBefore(rows[rowIndex], rows[rowIndex - 1]);
+      // when the row go up the index will be equal to index - 1
+      // rowIndex--;
+    }
+  }
+
+  if (direction === "move-down") {
+    if (rowIndex < rows.length - 1) {
+      parent.insertBefore(rows[rowIndex + 1], rows[rowIndex]);
+      // when the row go down the index will be equal to index + 1
+      // rowIndex++;
+    }
+  }
 };
