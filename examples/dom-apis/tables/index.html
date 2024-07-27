@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <table id="table">
+      <thead>
+        <tr>
+          <th scope="col">Email</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>foo@foo.com</td>
+          <td>Foo</td>
+          <td>Bar</td>
+          <td>
+            <button>Move Up</button>
+            <button>Move Down</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <form id="form">
+      <label for="email">Email</label>
+      <input type="email" />
+
+      <label for="first-name">First Name</label>
+      <input type="text" />
+
+      <label for="last-name">Last Name</label>
+      <input type="text" />
+
+      <button type="submit">Add</button>
+      <input type="reset" value="Clear form" />
+    </form>
+  </body>
+</html>
