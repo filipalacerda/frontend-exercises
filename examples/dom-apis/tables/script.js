@@ -3,6 +3,7 @@ window.onload = () => {
   // This will be triggered when the user clicks the submit button
   document.getElementById("form").addEventListener("submit", onFormSubmit);
 
+  // Add buttons event listeners
   buttonEventListeners();
 };
 
@@ -35,27 +36,52 @@ const buttonEventListeners = () => {
 const onFormSubmit = (event) => {
   event.preventDefault();
 
+  const emailRegexExp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+  const nameRegexExp = /^[a-zA-Z ]{2,30}$/;
+
   // Get the form elements
   const inputs = form.elements;
 
-  /**
-   * Iterate through the form elements to get
-   * only the inputs and remove the reset button
-   */
-  const values = Array.from(inputs)
-    .map((input) => {
-      if (input.nodeName === "INPUT" && input.type !== "reset") {
-        return input.value;
-      }
-    })
-    .filter((key) => {
-      return key !== undefined;
-    });
+  const email = inputs.namedItem("email").value;
+  const firstName = inputs.namedItem("first-name").value;
+  const lastName = inputs.namedItem("last-name").value;
 
-  // Call the function to add a new row
-  addRow(values);
-  // Reset the form
-  document.getElementById("form").reset();
+  if (
+    validate(
+      emailRegexExp,
+      email,
+      "Email must have the following format foo@bar.com"
+    ) &&
+    validateName(
+      nameRegexExp,
+      firstName,
+      "The first name must have between 2 and 30 charactes and use only letters"
+    ) &&
+    validateName(
+      nameRegexExp,
+      lastName,
+      "The last name must have between 2 and 30 charactes and use only letters"
+    )
+  ) {
+    /**
+     * Iterate through the form elements to get
+     * only the inputs and remove the reset button
+     */
+    const values = Array.from(inputs)
+      .map((input) => {
+        if (input.nodeName === "INPUT" && input.type !== "reset") {
+          return input.value;
+        }
+      })
+      .filter((key) => {
+        return key !== undefined;
+      });
+
+    // Call the function to add a new row
+    addRow(values);
+    // Reset the form
+    document.getElementById("form").reset();
+  }
 };
 
 /** Table DOM Api */
@@ -121,6 +147,12 @@ const deleteRow = (rowIndex) => {
   table.deleteRow(rowIndex);
 };
 
+/**
+ * Moves row up and down
+ *
+ * @param {string} direction
+ * @param {number} rowIndex
+ */
 const moveRow = (direction, rowIndex) => {
   const rows = document.getElementById("table").rows;
   const parent = rows[rowIndex].parentNode;
@@ -128,16 +160,29 @@ const moveRow = (direction, rowIndex) => {
   if (direction === "move-up") {
     if (rowIndex > 1) {
       parent.insertBefore(rows[rowIndex], rows[rowIndex - 1]);
-      // when the row go up the index will be equal to index - 1
-      // rowIndex--;
     }
   }
 
   if (direction === "move-down") {
     if (rowIndex < rows.length - 1) {
       parent.insertBefore(rows[rowIndex + 1], rows[rowIndex]);
-      // when the row go down the index will be equal to index + 1
-      // rowIndex++;
     }
   }
+};
+
+/** From validation */
+
+const validate = (regexExp, value, message) => {
+  const isValid = regexExp.test(value);
+  const errorDiv = document.getElementById("form-errors");
+
+  if (!isValid) {
+    const errorText = document.createTextNode(message);
+
+    errorDiv.appendChild(errorText);
+  } else {
+    errorDiv.innerHTML = "";
+  }
+
+  return isValid;
 };
