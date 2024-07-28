@@ -1,0 +1,50 @@
+body {
+  display: flex;
+}
+
+.left,
+.right {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+fieldset {
+  border: none;
+  padding: 15px 0px;
+}
+
+button,
+.reset-button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: green;
+  color: white;
+}
+
+.help {
+  font-size: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  color: red;
+}
+
+label {
+  font-weight: 600;
+}
