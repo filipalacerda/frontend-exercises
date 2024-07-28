@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <table id="table">
+      <thead>
+        <tr>
+          <th scope="col">Email</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>foo@foo.com</td>
+          <td>Foo</td>
+          <td>Bar</td>
+          <td>
+            <button data-action="move-up">Move Up</button>
+            <button data-action="move-down">Move Down</button>
+            <button data-action="delete">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <form id="form">
+      <label for="email">Email</label>
+      <input type="email" name="email" />
+
+      <label for="first-name">First Name</label>
+      <input type="text" name="first-name" />
+
+      <label for="last-name">Last Name</label>
+      <input type="text" name="last-name" />
+
+      <button type="submit">Add</button>
+      <input type="reset" value="Clear form" />
+
+      <div id="form-errors"></div>
+    </form>
+  </body>
+</html>
