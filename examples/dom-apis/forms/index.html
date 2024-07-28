@@ -1,0 +1,68 @@
+<form class="form" id="form">
+  <fieldset id="username-field">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required aria-required="true" />
+    <p class="help">This is a required field</p>
+    <p class="hidden error">Your username must have at least 6 characters</p>
+  </fieldset>
+
+  <fieldset id="password-field">
+    <label for="password">Password:</label>
+    <input type="password" id="password" required aria-required="true" />
+    <p class="help">This is a required field</p>
+    <ul class="hidden error">
+      Your password must have:
+      <li>At least 6 characters</li>
+      <li>One uppercase letter</li>
+      <li>One number</li>
+      <li>One symbol</li>
+    </ul>
+  </fieldset>
+
+  <fieldset id="email-field">
+    <label for="email">Email:</label>
+    <input type="email" id="email" size="30" required aria-required="true" />
+    <p class="help">This is a required field</p>
+    <p class="error"></p>
+  </fieldset>
+
+  <fieldset>
+    <label for="phone-number">Phone number:</label>
+    <input
+      type="text"
+      id="phone-number"
+      maxlength="9"
+      required
+      aria-required="true"
+    />
+    <p class="help">This is a required field</p>
+    <p class="error"></p>
+  </fieldset>
+
+  <fieldset>
+    <label for="country"> Country </label>
+    <select id="country">
+      <option value="portugal">Portugal</option>
+      <option value="us">United States</option>
+      <option value="other">Other</option>
+    </select>
+
+    <p class="help">This is a required field</p>
+    <p class="error"></p>
+  </fieldset>
+
+  <fieldset>
+    <label for="date"> Birth date: </label>
+    <input
+      type="date"
+      id="date"
+      required
+      aria-required="true"
+      placeholder="DD/MM/YYYY"
+    />
+  </fieldset>
+
+  <button type="submit" class="submit-button">Submit Form</button>
+
+  <input type="reset" id="reset-form" class="reset-button" value="Reset form" />
+</form>
