@@ -22,7 +22,7 @@ const onFormSubmit = (e) => {
 const onFormData = (e) => {
   // modifies the form data
   const formData = e.formData;
-  console.log(formData);
+
   const formattedName = formData.get("name").toLowerCase();
   const formattedEmail = formData.get("email").toLowerCase();
 
@@ -39,9 +39,11 @@ const getRandomInt = (max) => {
 
 const showData = (formData) => {
   const rightColumn = document.querySelector(".right");
-  formData.forEach((value) => {
+
+  formData.entries().forEach((entry) => {
     const newDiv = document.createElement("div");
-    const data = document.createTextNode(value);
+
+    const data = document.createTextNode(`${entry[0]}= ${entry[1]}`);
 
     newDiv.appendChild(data);
     rightColumn.appendChild(newDiv);
