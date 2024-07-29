@@ -2,3 +2,37 @@
   color: #d6184c;
   font-family: monospace;
 }
+
+.content {
+  font-family: monospace;
+  display: flex;
+  padding: 20px;
+  column-gap: 250px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  margin: 15px 0px 5px 0px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: monospace;
+  margin-top: 30px;
+  background-color: #2bc893;
+}
+
+.left,
+.right {
+  display: flex;
+  width: 250px;
+  flex-direction: column;
+}
