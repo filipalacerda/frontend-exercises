@@ -1,3 +1,12 @@
+.title {
+  color: #d6184c;
+  font-family: monospace;
+}
+
+body {
+  font-family: monospace;
+}
+
 /* basic table styles */
 table {
   table-layout: fixed;
@@ -43,4 +52,14 @@ form {
 
 #form-errors {
   color: red;
+}
+
+button,
+.reset-button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 10px;
 }
