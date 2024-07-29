@@ -46,7 +46,10 @@ const onDrop = (event) => {
   const dropzone = event.target;
 
   // Append the child in the dropzone
-  dropzone.appendChild(draggableElement);
+  // Prevent dragging a box into a draggable box
+  if (dropzone.className !== "draggable") {
+    dropzone.appendChild(draggableElement);
+  }
 
   // Clear the data transfer object with the id we just dropped
   event.dataTransfer.clearData();
