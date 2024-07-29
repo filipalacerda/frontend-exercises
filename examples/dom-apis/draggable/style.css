@@ -1,0 +1,38 @@
+.title {
+  color: #d6184c;
+  font-family: monospace;
+}
+
+.parent {
+  border: 1px solid #1b85ce;
+  color: black;
+  display: flex;
+  font-family: sans-serif;
+  font-weight: bold;
+  height: 400px;
+  padding: 20px;
+}
+
+.origin {
+  flex-basis: 100%;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.draggable {
+  background-color: #4aae9b;
+  font-weight: normal;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  cursor: move;
+  color: white;
+  font-family: monospace;
+}
+
+.dropzone {
+  background-color: #dd9bad;
+  flex-basis: 100%;
+  flex-grow: 1;
+  padding: 10px;
+}
