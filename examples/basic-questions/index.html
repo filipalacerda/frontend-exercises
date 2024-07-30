@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Frontend Basic Questions</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="title">Frontend Basic Questions</h1>
+    <div class="content">
+      <div class="container">
+        <h2>What are the primitive data types in JavaScript?</h2>
+        <p>
+          There are six: number, string, boolean, null, undefined, and symbol.
+        </p>
+      </div>
+
+      <div class="container">
+        <h2>How do you explain ‘hoisting’ in JavaScript?</h2>
+        <p>
+          Variable declarations are hoisted to the top of their scope, allowing
+          access before their actual definition.
+        </p>
+      </div>
+
+      <div class="container">
+        <h2>What’s the difference between ‘===’ and ‘==’</h2>
+        <p>
+          === checks for strict equality (value and type), while == performs
+          type coercion before comparison.
+        </p>
+      </div>
+
+      <div class="container">
+        <h2>What is the difference between call() and apply() methods ?</h2>
+        <p>
+          Both methods are used in a different situation:
+          <ul>
+            <li>
+              <b>call()</b>
+              It calls the method, taking the owner object as argument. The keyword this
+              refers to the ‘owner’ of the function or the object it belongs to. We
+              can call a method that can be used on different objects.
+            </li>
+            <li>
+              <b>apply()</b>
+              The apply() method is used to write methods, which can be used
+              on different objects. It is different from the function call() because
+              it takes arguments as an array.
+            </li>
+          </ul> 
+        </p>
+      </div>
+
+      <div class="container">
+        <h2>What does var myArray = [[]]; statement declares?</h2>
+        <p>
+          In JavaScript, this statement is used to declare a two-dimensional array.
+        </p>
+      </div>
+
+      <div class="container">
+        <h2>How many ways an HTML element can be accessed in JavaScript code? </h2>
+        <p>
+          There are four possible ways to access HTML elements in JavaScript which are:
+          <ul>
+            <li><code>getElementById()</code></li>
+            <li><code>getElementByClass()</code></li>
+            <li><code>getElementByTagName()</code></li>
+            <li><code>querySelector()</code></li>
+          </ul>
+        </p>
+      </div>
+
+      <div class="container">
+        <h2>What is the difference between innerHTML & innerText? </h2>
+        <p>
+          The innerText property sets or returns the text content as plain text of the specified node, 
+          and all its descendants whereas the innerHTML property sets or returns the plain text or HTML contents in the elements.
+          Unlike innerText, inner HTML lets you work with HTML rich text and doesn’t automatically encode and decode text.
+        </p>
+      </div>
+
+      <div class="container">
+        <h2>What is an event bubbling in JavaScript?</h2>
+        <p>
+         Consider a situation an element is present inside another element and both of them handle an event. 
+         When an event occurs in bubbling, the innermost element handles the event first, then the outer, and so on.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

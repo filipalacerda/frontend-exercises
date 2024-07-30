@@ -1,0 +1,16 @@
+body {
+  font-family: monospace;
+}
+
+.title {
+  color: #d6184c;
+  font-family: monospace;
+}
+
+h2 {
+  color: #4aae9b;
+}
+
+.container {
+  margin: 20px 0px 40px 0px;
+}
