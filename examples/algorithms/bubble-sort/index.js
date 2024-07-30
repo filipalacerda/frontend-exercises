@@ -1,6 +1,8 @@
 window.onload = () => {
   document.getElementById("bubble-sort").addEventListener("click", () => {
-    const sortedArray = bubbleSort([4, 8, 2, 1, 3, 7, 5, 6]);
+    const input = document.getElementById("input");
+
+    const sortedArray = bubbleSort(input.value.split(","));
     const text = document.createTextNode(sortedArray);
     document.getElementById("result").appendChild(text);
   });
