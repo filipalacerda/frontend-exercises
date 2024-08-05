@@ -1,13 +1,14 @@
 .title {
   color: #d6184c;
   font-family: monospace;
+  text-align: center;
 }
 
 body {
   font-family: monospace;
 }
 
-#board {
+.board {
   margin: 0 auto;
   width: 375px;
   height: 375px;
@@ -27,7 +28,7 @@ body {
   align-items: center;
 }
 
-#restartButton {
+#restart {
   display: block;
   margin: 20px auto;
   height: 40px;
@@ -39,4 +40,12 @@ body {
   cursor: pointer;
   font-family: monospace;
   border: 1px solid #4e4e4e;
+}
+
+#result {
+  display: block;
+  margin: 20px auto;
+  font-size: 20px;
+  text-align: center;
+  color: #4aae9b;
 }
