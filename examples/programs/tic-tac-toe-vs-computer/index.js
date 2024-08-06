@@ -122,10 +122,10 @@ window.onload = () => {
       currentBoardState[availCellsIndexes[i]] = currentPlayer;
 
       if (currentPlayer === aiMark) {
-        // Step 11 - Recursively run the minimax function for the new board:
+        // Recursively run the minimax function for the new board:
         const result = minimax(currentBoardState, humanMark);
 
-        // Step 12 - Save the result variable’s score into the currentTestPlayInfo object:
+        //  Save the result variable’s score into the currentTestPlayInfo object:
         currentTestPlayInfo.score = result.score;
       } else {
         // Recursively run the minimax function for the new board:
@@ -141,10 +141,10 @@ window.onload = () => {
       allTestPlayInfos.push(currentTestPlayInfo);
     }
 
-    // Step 15 - Create a store for the best test-play’s reference:
+    // Create a store for the best test-play’s reference:
     let bestTestPlay = null;
 
-    // Step 16 - Get the reference to the current player’s best test-play:
+    // Get the reference to the current player’s best test-play:
     if (currentPlayer === aiMark) {
       let bestScore = -Infinity;
       for (let i = 0; i < allTestPlayInfos.length; i++) {
